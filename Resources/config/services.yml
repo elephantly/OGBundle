@@ -1,0 +1,6 @@
+parameters:
+    elephantly.og.crawler.class: Elephantly\OGBundle\Crawler\OGCrawler
+services:
+    elephantly.og.crawler:
+        class: %elephantly.og.crawler.class%
+        # arguments: []

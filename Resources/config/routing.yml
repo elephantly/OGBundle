@@ -1,0 +1,3 @@
+elephantly_og_homepage:
+    path:     /
+    defaults: { _controller: ElephantlyOGBundle:Default:index }
