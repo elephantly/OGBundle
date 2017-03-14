@@ -14,17 +14,45 @@ use Buzz\Client\Curl;
 class OGCrawler extends BuzzBrowser
 {
 
-    public function getHead()
+    /**
+    * Return the Open Graph content of a url
+    * @return array
+    */
+    public function getHead($url)
     {
-        $response = $this->get('http://opengraphprotocol.org');
+        $response = $this->get($url);
 
         $content = $response->getContent();
-        $old_libxml_error = libxml_use_internal_errors(true);
-        $doc = new \DOMDocument();
-        $doc->loadHTML($content);
-        libxml_use_internal_errors($old_libxml_error);
+        $doc = $this->getDOMDocumentFromContent($content);
         $tags = $doc->getElementsByTagName('meta');
 
+        $ogs = $this->extractOGTags($tags);
+
+        return $ogs;
+    }
+
+    /**
+    * Return the \DOMDocument from a string
+    * @return \DOMDocument
+    */
+    public function getDOMDocumentFromContent($content = '')
+    {
+        libxml_use_internal_errors(true);
+
+        $doc = new \DOMDocument();
+        $doc->loadHTML($content);
+
+        libxml_use_internal_errors(false);
+
+        return $doc;
+    }
+
+    /**
+    * Return the Open Graph tags in an array
+    * @return array
+    */
+    public function extractOGTags($tags = array())
+    {
         $ogs = array();
         foreach ($tags as $tag) {
             if( $tag->hasAttribute('property') && strpos($tag->getAttribute('property'), 'og:') === 0)

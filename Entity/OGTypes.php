@@ -5,7 +5,7 @@ namespace Elephantly\OGBundle\Entity;
 /**
 * primary @author purplebabar(lalung.alexandre@gmail.com)
 */
-class Types
+class OGTypes
 {
     const WEBSITE  = "website";
     const ARTICLE  = "article";
