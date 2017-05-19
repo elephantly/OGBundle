@@ -1,5 +1,5 @@
 elephantly_og_homepage:
-    path:     /
+    path: /testing_og
     defaults:
         _controller: elephantly.og_object.controller:indexAction
         _elephantly:
