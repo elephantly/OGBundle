@@ -1,6 +1,6 @@
 elephantly_og_homepage:
-    path:     /
+    path: /
     defaults:
-        _controller: elephantly.og_object.controller:indexAction
+        _controller: elephantly.og_object.controller:createAction
         _elephantly:
             template: ElephantlyResourceBundle::test.html.twig

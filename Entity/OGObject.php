@@ -445,20 +445,6 @@ class OGObject
     }
 
     /**
-     * Set the value of Created At
-     *
-     * @param mixed createdAt
-     *
-     * @return self
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
      * Get the value of Updated At
      *
      * @return mixed
@@ -466,20 +452,6 @@ class OGObject
     public function getUpdatedAt()
     {
         return $this->updatedAt;
-    }
-
-    /**
-     * Set the value of Updated At
-     *
-     * @param mixed updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
     }
 
 }
